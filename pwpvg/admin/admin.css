@@ -1,0 +1,88 @@
+#woocommerce-product-data ul.wc-tabs li.pv-characteristic-tab_options a::before,
+#woocommerce-product-data ul.wc-tabs li.pv-plant-needs-tab_options a::before {
+	content: '\f175';
+}
+
+#pv_features_attributes .form-field,
+#pv_characteristic_attributes .form-field,
+#pv_plant_needs_attributes .form-field {
+	margin: 2%;
+	width: 100%;
+}
+
+.pv-checkbox-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: 30px;
+}
+#pv_features_attributes > .form-field label,
+#pv_characteristic_attributes > .form-field label,
+#pv_plant_needs_attributes .long-inputs .form-field label {
+	display: block; 
+} 
+
+#pv_characteristic_attributes .text-field-container,
+#pv_plant_needs_attributes .mini-columns {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#pv_characteristic_attributes .text-field-container .form-field,
+#pv_characteristic_attributes .text-field-container .mini-columns {
+	width: 40%;
+}
+#pv_characteristic_attributes .text-field-container .mini-columns,
+#pv_plant_needs_attributes .mini-columns .form-field {
+	width: 40%;
+    margin: 2%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#pv_characteristic_attributes .text-field-container .mini-columns label {
+	width: 100%;
+}
+#pv_plant_needs_attributes .mini-columns label {
+	display: block;
+    width: 100%;
+    margin-left: 2%;
+}
+
+#pv_features_attributes .pv-checkbox-container .form-field {
+	width: 43%;
+	margin: 5px 2%;
+	padding: 5px 10px;
+}
+#pv_plant_needs_attributes .pv-checkbox {
+	margin-left: 20px;
+}
+.pv-checkbox-container .form-field:nth-of-type(4n),
+.pv-checkbox-container .form-field:nth-of-type(4n-1){
+	background: #F1F1F1;    
+}
+.pv-checkbox-container .form-field:nth-of-type(4n-2),
+.pv-checkbox-container .form-field:nth-of-type(4n-3){
+	background: #FFF;    
+}
+.pv-checkbox-container .form-field label {
+	display: inline-block;
+	width: 60%;
+}
+.pv-checkbox-container .form-field .pv-checkbox {
+	float: right;
+	margin-top: 3px;
+}
+
+#pv_more_colors .pv-more-color-grid {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+#pv_more_colors .pv-more-color-grid .pv-mc-grid-item {
+	width: 33%;
+	margin: 3%;
+}
+#pv_more_colors .pv-more-color-grid .pv-mc-grid-item img {
+	max-width: 100%;
+}
