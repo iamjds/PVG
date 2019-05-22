@@ -7,10 +7,10 @@ function pv_get_product_updates() {
     $param = http_build_query([
         'apikey'                    => 'e9txcshdDtFr2smWCPUyY5HPvGm4Uc',
         'introduction_year_before'  => 2020,
-        //'professional_release_after'=> strtotime('1900-01-01'),
-        'sections'                  => 'features,needs,characteristics,images,series',
+        //'nid'                       => 42875,
+        'sections'                  => 'identity,features,needs,characteristics,images,series',
         'limit'                     => 50,
-        'page'                      => 18
+        'page'                      => 10
     ]);
 
     curl_setopt_array($curl, array(
@@ -39,10 +39,10 @@ function pv_get_product_updates() {
         //loop through all PVG plant data and determine
         //whether its new data or something to be updated
         foreach(json_decode($response, true) as $plant) {        
-            $lookup = get_nid_lookup( $plant['nid'] );     
+            $lookup = get_nid_lookup( $plant['nid'] );              
 
             if( !empty( $lookup ) ) {
-                //update existing product in db  
+                // update existing product in db  
                 error_log( 'plant '.$plant['nid'].' already exists' );
 
                 $post_id = 0;
@@ -52,6 +52,9 @@ function pv_get_product_updates() {
                 if( count($json_parsed) > 0 ){
                     $post_id = $json_parsed[0]['ID'];
                 }
+
+                // update images if needed
+                pv_add_new_product_images( $post_id, $plant );
 
                 // *put a timestamp entry check so it won't try to update every product every time it runs
                 pv_update_product_attributes( $post_id, $plant );

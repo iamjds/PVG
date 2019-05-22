@@ -9,8 +9,8 @@ function pv_update_product_attributes($post_id, $new_plant){
     // Features
 
     update_post_meta( $post_id, '_pv_feature_desc', $new_plant['features']['description'], get_post_meta($post_id , '_pv_feature_desc', true) );
-    update_post_meta( $post_id, '_pv_feature_attracts', serialize($new_plant['features']['attracts_wildlife']), get_post_meta($post_id , '_pv_feature_attracts', true) );
-    update_post_meta( $post_id, '_pv_feature_resists', serialize($new_plant['features']['resists_wildlife']), get_post_meta($post_id , '_pv_feature_resists', true) );
+    update_post_meta( $post_id, '_pv_feature_attracts', $new_plant['features']['attracts_wildlife'], get_post_meta($post_id , '_pv_feature_attracts', true) );
+    update_post_meta( $post_id, '_pv_feature_resists', $new_plant['features']['resists_wildlife'], get_post_meta($post_id , '_pv_feature_resists', true) );
     update_post_meta( $post_id, '_pv_feature_fun_facts', $new_plant['features']['fun_facts'], get_post_meta($post_id , '_pv_feature_fun_facts', true) );
     update_post_meta( $post_id, '_pv_feature_adaptable_houseplant', $new_plant['features']['adaptable_as_houseplant'], get_post_meta($post_id , '_pv_feature_adaptable_houseplant', true) );
     update_post_meta( $post_id, '_pv_feature_award_winner', $new_plant['features']['award_winner'], get_post_meta($post_id , '_pv_feature_award_winner', true) );
@@ -41,17 +41,21 @@ function pv_update_product_attributes($post_id, $new_plant){
     update_post_meta( $post_id, '_pv_ch_duration', $new_plant['characteristics']['duration'], get_post_meta($post_id , '_pv_ch_duration', true) );
     update_post_meta( $post_id, '_pv_ch_flower_shade', $new_plant['characteristics']['flower_shade'], get_post_meta($post_id , '_pv_ch_flower_shade', true) );
     update_post_meta( $post_id, '_pv_ch_height_category', $new_plant['characteristics']['height_category'], get_post_meta($post_id , '_pv_ch_height_category', true) );
-    update_post_meta( $post_id, '_pv_ch_foliage_colors', serialize($new_plant['characteristics']['foliage_colors']), get_post_meta($post_id , '_pv_ch_foliage_colors', true) );
+    update_post_meta( $post_id, '_pv_ch_foliage_colors', $new_plant['characteristics']['foliage_colors'], get_post_meta($post_id , '_pv_ch_foliage_colors', true) );
+    update_post_meta( $post_id, '_pv_ch_foliage_shade', $new_plant['characteristics']['foliage_shade'], get_post_meta($post_id , '_pv_ch_foliage_shade', true) );
     update_post_meta( $post_id, '_pv_ch_garden_height_min', $new_plant['characteristics']['garden_height_minimum'], get_post_meta($post_id , '_pv_ch_garden_height_min', true) );
     update_post_meta( $post_id, '_pv_ch_garden_height_max', $new_plant['characteristics']['garden_height_maximum'], get_post_meta($post_id , '_pv_ch_garden_height_max', true) );
-    update_post_meta( $post_id, '_pv_ch_foliage_shade', $new_plant['characteristics']['foliage_shade'], get_post_meta($post_id , '_pv_ch_foliage_shade', true) );
+    update_post_meta( $post_id, '_pv_ch_market_height_min', $new_plant['characteristics']['market_height_minimum'], get_post_meta($post_id , '_pv_ch_market_height_min', true) );
+    update_post_meta( $post_id, '_pv_ch_market_height_max', $new_plant['characteristics']['market_height_maximum'], get_post_meta($post_id , '_pv_ch_market_height_max', true) );    
     update_post_meta( $post_id, '_pv_ch_spacing_min', $new_plant['characteristics']['spacing_minimum'], get_post_meta($post_id , '_pv_ch_spacing_min', true) );
     update_post_meta( $post_id, '_pv_ch_spacing_max', $new_plant['characteristics']['spacing_maximum'], get_post_meta($post_id , '_pv_ch_spacing_max', true) );
+    update_post_meta( $post_id, '_pv_ch_scape_height_min', $new_plant['characteristics']['scape_height_minimum'], get_post_meta($post_id , '_pv_ch_scape_height_min', true) );
+    update_post_meta( $post_id, '_pv_ch_scape_height_max', $new_plant['characteristics']['scape_height_maximum'], get_post_meta($post_id , '_pv_ch_scape_height_max', true) );
     update_post_meta( $post_id, '_pv_ch_habit', $new_plant['characteristics']['habit'], get_post_meta($post_id , '_pv_ch_habit', true) );
     update_post_meta( $post_id, '_pv_ch_spread_min', $new_plant['characteristics']['spread_minimum'], get_post_meta($post_id , '_pv_ch_spread_min', true) );
     update_post_meta( $post_id, '_pv_ch_spread_max', $new_plant['characteristics']['spread_maximum'], get_post_meta($post_id , '_pv_ch_spread_max', true) );
     update_post_meta( $post_id, '_pv_ch_container_role', $new_plant['characteristics']['container_role'], get_post_meta($post_id , '_pv_ch_container_role', true) );
-    update_post_meta( $post_id, '_pv_ch_flower_colors', serialize($new_plant['characteristics']['flower_colors']), get_post_meta($post_id , '_pv_ch_flower_colors', true) );
+    update_post_meta( $post_id, '_pv_ch_flower_colors', $new_plant['characteristics']['flower_colors'], get_post_meta($post_id , '_pv_ch_flower_colors', true) );
 
     // Plant Needs
 
@@ -62,27 +66,40 @@ function pv_update_product_attributes($post_id, $new_plant){
     update_post_meta( $post_id, '_pv_needs_uses_notes', $new_plant['needs']['uses_notes'], get_post_meta($post_id , '_pv_needs_uses_notes', true) );
     update_post_meta( $post_id, '_pv_needs_maintenance_cat', $new_plant['needs']['maintenance_category'], get_post_meta($post_id , '_pv_needs_maintenance_cat', true) );    
     update_post_meta( $post_id, '_pv_needs_water_cat', $new_plant['needs']['water_category'], get_post_meta($post_id , '_pv_needs_water_cat', true) );
-    update_post_meta( $post_id, '_pv_needs_light_code', serialize($new_plant['needs']['lightcode']), get_post_meta($post_id , '_pv_needs_light_code', true) );
-    update_post_meta( $post_id, '_pv_needs_light_level', serialize($new_plant['needs']['light_level']), get_post_meta($post_id , '_pv_needs_light_level', true) );
-    update_post_meta( $post_id, '_pv_needs_blooms_on', serialize($new_plant['needs']['blooms_on']), get_post_meta($post_id , '_pv_needs_blooms_on', true) );
-    update_post_meta( $post_id, '_pv_needs_bloom_time', serialize($new_plant['needs']['bloom_time']), get_post_meta($post_id , '_pv_needs_bloom_time', true) );
-    update_post_meta( $post_id, '_pv_needs_hardiness_zones', serialize($new_plant['needs']['hardiness_zones']), get_post_meta($post_id , '_pv_needs_hardiness_zones', true) );
-    update_post_meta( $post_id, '_pv_needs_heat_zones', serialize($new_plant['needs']['heat_zones']), get_post_meta($post_id , '_pv_needs_heat_zones', true) );
-    update_post_meta( $post_id, '_pv_needs_uses', serialize($new_plant['needs']['uses']), get_post_meta($post_id , '_pv_needs_uses', true) );
-    update_post_meta( $post_id, '_pv_needs_soil_fert', serialize($new_plant['needs']['soil_fertility']), get_post_meta($post_id , '_pv_needs_soil_fert', true) );
-    update_post_meta( $post_id, '_pv_needs_soil_ph_cat', serialize($new_plant['needs']['soil_ph_category']), get_post_meta($post_id , '_pv_needs_soil_ph_cat', true) );
+    update_post_meta( $post_id, '_pv_needs_light_code', $new_plant['needs']['lightcode'], get_post_meta($post_id , '_pv_needs_light_code', true) );
+    update_post_meta( $post_id, '_pv_needs_light_level', $new_plant['needs']['light_level'], get_post_meta($post_id , '_pv_needs_light_level', true) );
+    update_post_meta( $post_id, '_pv_needs_blooms_on', $new_plant['needs']['blooms_on'], get_post_meta($post_id , '_pv_needs_blooms_on', true) );
+    update_post_meta( $post_id, '_pv_needs_bloom_time', $new_plant['needs']['bloom_time'], get_post_meta($post_id , '_pv_needs_bloom_time', true) );
+    update_post_meta( $post_id, '_pv_needs_hardiness_zones', $new_plant['needs']['hardiness_zones'], get_post_meta($post_id , '_pv_needs_hardiness_zones', true) );
+    update_post_meta( $post_id, '_pv_needs_heat_zones', $new_plant['needs']['heat_zones'], get_post_meta($post_id , '_pv_needs_heat_zones', true) );
+    update_post_meta( $post_id, '_pv_needs_uses', $new_plant['needs']['uses'], get_post_meta($post_id , '_pv_needs_uses', true) );
+    update_post_meta( $post_id, '_pv_needs_soil_fert', $new_plant['needs']['soil_fertility'], get_post_meta($post_id , '_pv_needs_soil_fert', true) );
+    update_post_meta( $post_id, '_pv_needs_soil_ph_cat', $new_plant['needs']['soil_ph_category'], get_post_meta($post_id , '_pv_needs_soil_ph_cat', true) );
+
+    // Identity
+    
+    if( preg_match('/winner/', strtolower($new_plant['identity']['brand'])) ){
+        update_post_meta( $post_id, '_pv_identity_pr_winners', 1, get_post_meta($post_id , '_pv_identity_pr_winners', true) );
+    }
+    if( preg_match('/selection/', strtolower($new_plant['identity']['brand'])) ){
+        update_post_meta( $post_id, '_pv_identity_pr_selections', 1, get_post_meta($post_id , '_pv_identity_pr_selections', true) );
+    }
+    update_post_meta( $post_id, '_pv_identity_genus', $new_plant['identity']['genus'], get_post_meta($post_id , '_pv_identity_genus', true) );
+    update_post_meta( $post_id, '_pv_identity_species', $new_plant['identity']['species'], get_post_meta($post_id , '_pv_identity_species', true) );
 
     // More Colors
 
     $nids = array();
 
-    if( isset($new_plant['series']) && isset($new_plant['series']['plant']) ){
+    if( isset($new_plant['series']) && !empty($new_plant['series']) && count($new_plant['series']['plants'] > 0) ){
+        error_log( count( $new_plant['series']['plants'] ) . ' more colors to add to post ' . $post_id);
+
         foreach($new_plant['series']['plants'] as $plant) {    
             if($new_plant['nid'] != $plant['nid']){    
                 array_push( $nids, $plant['nid'] );
             }
         }
-        update_post_meta( $post_id, '_pv_more_colors_nids', serialize($nids), get_post_meta($post_id , '_pv_more_colors_nids', true) );
+        update_post_meta( $post_id, '_pv_more_colors_nids', $nids, get_post_meta($post_id , '_pv_more_colors_nids', true) );
     }
 
     error_log( 'all PVG attributes for post ' . $post_id . ' have been updated' );

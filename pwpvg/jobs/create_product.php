@@ -92,8 +92,11 @@ function pv_add_prelim_attributes( $post_id ){
 }
 
 function pv_wp_post_attachments( $parent_id, $image, $title ){    
+    global $wpdb;
 
     $featured_filename = $image['sizes']["1024"];
+    $image_post_id = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM $wpdb->posts WHERE guid=%s", $featured_filename ) );
+
     // $featured_attachment = array(
     //     'guid'           => $featured_filename,
     //     'post_mime_type' => 'image/jpeg',
@@ -102,6 +105,7 @@ function pv_wp_post_attachments( $parent_id, $image, $title ){
     // );
 
     $new_product = array(
+        'ID'            => ($image_post_id ? $image_post_id : 0),
         'post_title'    => sanitize_title( $title ),
         'post_status'   => 'inherit',
         'post_author'   => 1,
@@ -114,6 +118,7 @@ function pv_wp_post_attachments( $parent_id, $image, $title ){
         'post_mime_type' => 'image/jpeg',
         'comment_count' => 0,
     );
+
 
     // Insert new image post into db
     $image_post_id = wp_insert_post( $new_product );
@@ -164,7 +169,6 @@ function pv_add_new_product_images( $post_id, $plant ){
         if( count($image_post_ids) > 0 ){
             //set product image
             if( isset($image_post_ids['featured']) ){
-                //error_log( 'is featured actually set to ... ' . $image_post_ids['featured'] );
                 set_post_thumbnail($post_id, $image_post_ids['featured']);
             }
 
@@ -175,7 +179,7 @@ function pv_add_new_product_images( $post_id, $plant ){
 
         }
 
-        error_log( 'post ' . $post_id . ' images have been added' );
+        error_log( 'post ' . $post_id . ' images have been added/updated' );
     } catch(Exception $e){
         error_log( 'failed to create new image: ' . $e );
     }
