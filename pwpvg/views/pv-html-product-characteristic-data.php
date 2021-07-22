@@ -142,7 +142,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 		'value' => get_post_meta( $post->ID, '_pv_ch_container_role', true ),
 		);
 	woocommerce_wp_text_input( $args );
+	?>
 
+	<div class="mini-columns">
+		<label for="pv_ch_garden_height">Market Height</label>
+		<?php
+		$args = array(
+			'label' => 'min',
+			'class' => 'pv-text',
+			'id' => 'pv_ch_market_height_min', 
+			'name' => '_pv_ch_market_height_min', 
+			'value' => get_post_meta( $post->ID, '_pv_ch_market_height_min', true ),
+			);
+		woocommerce_wp_text_input( $args );
+		$args = array(
+			'label' => 'max',
+			'class' => 'pv-text',
+			'id' => 'pv_ch_market_height_max', 
+			'name' => '_pv_ch_market_height_max', 
+			'value' => get_post_meta( $post->ID, '_pv_ch_market_height_max', true ),
+			);
+		woocommerce_wp_text_input( $args );
+		?>
+	</div>
+
+	<?php
 	$args = array(
 		'label' => 'Flower Colors',
 		'class' => 'pv-text',
@@ -153,5 +177,28 @@ if ( ! defined( 'ABSPATH' ) ) {
 	woocommerce_wp_text_input( $args );
 
 	?>
+
+	<div class="mini-columns">
+		<label for="pv_ch_garden_height">Scape Height</label>
+		<?php
+		$args = array(
+			'label' => 'min',
+			'class' => 'pv-text',
+			'id' => 'pv_ch_scape_height_min', 
+			'name' => '_pv_ch_scape_height_min', 
+			'value' => get_post_meta( $post->ID, '_pv_ch_scape_height_min', true ),
+			);
+		woocommerce_wp_text_input( $args );
+		$args = array(
+			'label' => 'max',
+			'class' => 'pv-text',
+			'id' => 'pv_ch_scape_height_max', 
+			'name' => '_pv_ch_scape_height_max', 
+			'value' => get_post_meta( $post->ID, '_pv_ch_scape_height_max', true ),
+			);
+		woocommerce_wp_text_input( $args );
+		?>
+	</div>
+
 	</div>	
 </div>
