@@ -4,11 +4,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 function pv_get_product_series(){
-    $nIds = get_post_meta( get_the_ID(), '_pv_more_colors_nids', true);    
+    $nIds = get_post_meta( get_the_ID(), '_pv_more_colors_nids', true);      
 
-    if( isset($nIds) && !empty($nIds) ){
+    if( $nIds != null && gettype($nIds) == 'array' ){
 
-        $nid_string = implode(',', unserialize($nIds));    
+        $nid_string = implode(',', $nIds);    
         $curl = curl_init();
 
         $param = http_build_query([
@@ -39,7 +39,7 @@ function pv_get_product_series(){
             return $response;
         }        
     } else {
-        return 'nID not present';
+        return null;
     }
 }
 
@@ -51,11 +51,8 @@ function pv_get_product_series(){
 
 	<?php
         $res = pv_get_product_series();
-
-        //$nIds = get_post_meta( get_the_ID(), '_pv_more_colors_nids', true);
-        //var_dump( $res );    
         
-        if ( isset($res) && count($res) > 0 && !is_string($res) ){
+        if ( isset($res) && is_string($res) && !is_null($res) ){
             $json_series = json_decode($res, true);
             $nids = array();
 
