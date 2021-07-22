@@ -2,7 +2,7 @@
 
 Theme customization involves integration and customization to product detail information within the admin view.
 
-The following new sections have been added to the WooCommerce product details:
+The following new sections have been added to the WooCommerce product details specifically for PVG needs:
 - Characteristic data
 - Feature data
 - Growing information
@@ -22,12 +22,12 @@ Utilize manual or scheduled WP CRON job to:
 
 ## Logging
 
-
+Clear logging capabilities have been added to each process of the CRON upload and synchronization.
 
 
 ## API integration
 
-Once an Proven Winners API key has been granted, once the WP CRON job has been initiated
+Once a Proven Winners API key has been granted, and the WP CRON job has been initiated, the `/api/v0/culture/search` and `/api/v0/plant/search` end points have been utilized to fetch the appropriate data in JSON format.
 
 
 ## Dependencies
