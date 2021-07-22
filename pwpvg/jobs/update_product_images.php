@@ -30,6 +30,4 @@ function pv_get_product_images() {
     } else {
         return $response;
     }
-
-    //return "https://www.provenwinners.com/api/v0/plant/search" . $param;
 }
