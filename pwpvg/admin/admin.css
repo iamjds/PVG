@@ -5,7 +5,8 @@
 
 #pv_features_attributes .form-field,
 #pv_characteristic_attributes .form-field,
-#pv_plant_needs_attributes .form-field {
+#pv_plant_needs_attributes .form-field,
+#pv_growing_info_attributes .form-field {
 	margin: 2%;
 	width: 100%;
 }
@@ -18,17 +19,21 @@
 }
 #pv_features_attributes > .form-field label,
 #pv_characteristic_attributes > .form-field label,
-#pv_plant_needs_attributes .long-inputs .form-field label {
+#pv_plant_needs_attributes .long-inputs .form-field label,
+#pv_growing_info_attributes .form-field.pv_gi_ph_field label {
 	display: block; 
 } 
 
 #pv_characteristic_attributes .text-field-container,
-#pv_plant_needs_attributes .mini-columns {
+#pv_growing_info_attributes .text-field-container,
+#pv_plant_needs_attributes .mini-columns,
+#pv_growing_info_attributes .mini-columns {
 	display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 #pv_characteristic_attributes .text-field-container .form-field,
+#pv_growing_info_attributes .text-field-container .form-field,
 #pv_characteristic_attributes .text-field-container .mini-columns {
 	width: 40%;
 }
@@ -40,10 +45,16 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-#pv_characteristic_attributes .text-field-container .mini-columns label {
+#pv_growing_info_attributes .mini-columns .form-field {
+	width: 18%;
+    margin: 2%;
+}
+#pv_characteristic_attributes .text-field-container .mini-columns label,
+#pv_growing_info_attributes .mini-columns {
 	width: 100%;
 }
-#pv_plant_needs_attributes .mini-columns label {
+#pv_plant_needs_attributes .mini-columns label,
+#pv_growing_info_attributes .mini-columns label {
 	display: block;
     width: 100%;
     margin-left: 2%;
@@ -85,4 +96,9 @@
 }
 #pv_more_colors .pv-more-color-grid .pv-mc-grid-item img {
 	max-width: 100%;
+}
+
+.pv-space-holder-text,
+[class*="pv_empty"] > label {
+	visibility: hidden;
 }
