@@ -21,7 +21,7 @@ function pv_create_new_product( $plant ){
 
     if( $new_post_id > 0 ){
         pv_add_new_nid( $new_post_id, $plant['nid'] );
-        error_log( 'created new product post for ' . $plant['nid'] );
+        write_log( 'created new product post for ' . $plant['nid'] );
     } else {
         error_log( 'couldnt create new product post for ' . $plant['nid'] );
         return false;
@@ -179,7 +179,7 @@ function pv_add_new_product_images( $post_id, $plant ){
 
         }
 
-        error_log( 'post ' . $post_id . ' images have been added/updated' );
+        write_log( 'post ' . $post_id . ' images have been added/updated' );
     } catch(Exception $e){
         error_log( 'failed to create new image: ' . $e );
     }
